@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function show_coords(event) {
+  var x = event.clientX;
+  var y = event.clientY;
+  alert("X coords: " + x + ", Y coords: " + y);
+}
+
+function show_coords2(event) {
+  var x = event.offsetX;
+  var y = event.offsetY;
+  alert("X offset: " + x + ", Y offset: " + y);
+}
+
+function show_coords3(event) {
+  var x = event.pageX;
+  var y = event.pageY;
+  alert("X page: " + x + ", Y page: " + y);
+}
+</script>
+</head>
+<body>
+
+<p onmousedown="show_coords(event)">Click this paragraph, and an alert box will alert the x and y coordinates of the mouse pointer.</p>
+
+<p onmousedown="show_coords2(event)">Click this paragraph, and an alert box will alert the x and y coordinates of the mouse pointer.</p>
+
+<p onmousedown="show_coords3(event)">Click this paragraph, and an alert box will alert the x and y coordinates of the mouse pointer.</p>
+
+</body>
+</html>
