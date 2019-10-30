@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Word game </title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            form {
+                font-size: 1.5em;
+            }
+            .scrambled, input, button {
+                font-family: monospace;
+                font-size: 2em;
+            }
+            
+        </style>
+    </head>
+    <body>
+    
+    <h1>Word game!</h1>
+    <form id="joke-form">
+        <label>
+            Unscramble these letters to form a word:<Br>
+            <span class="scrambled">REYJUQ</span>
+            <br>
+            <input type="text" name="answer" size="10">
+        </label>
+        <button type="submit">Check</button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // when the user submits the form,
+        //   check that their answer is correct
+        //   and show them appropriate message
+        
+            var result = $("<div>");
+            result.addClass("result");
+            result.text("what would be the result?");
+            $("body").append(result);
+            
+        console.log("im here");
+        $("#joke-form").on("submit",function(event){
+            event.preventDefault();
+            var $text = $(this).find("input[type=text]");
+            var text = $text.val(); 
+            // console.log(text);
+            if(text==='JQUERY' || text==='jquery'){
+            $(".result").text("you got it");
+            }else if(text===''){
+                alert("please fill in the blank")
+            } else{
+              $(".result").text("try again~!");
+            }
+        });
+        
+    </script>
+    </body>
+</html>
