@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Interactive slideshow</title>
+        <style>
+        div{
+            color: green;
+        }
+        </style>
+    </head>
+    <body>
+    
+    
+    <img src="https://www.kasandbox.org/programming-images/food/mushroom.png" width="400" alt="Mushrooms">
+    <button type="button">Next ➡</button>
+    <div class="nametag">mushroom</div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    var options = {
+        "mushroom":"https://www.kasandbox.org/programming-images/food/mushroom.png",
+        "tomatoes":"https://www.kasandbox.org/programming-images/food/tomatoes.png",
+        "bananas":"https://www.kasandbox.org/programming-images/food/bananas.png"
+    };
+    
+    var name;
+    var prev = $("<button></button>");
+    prev.text("prev ←");
+    prev.attr("type","button");
+    prev.addClass("prev");
+       
+    $("img").hide();
+    $("img").slideDown(1000);
+    
+    $("button").addClass("next");
+    
+    $(".next").on("click", function(event){
+       event.preventDefault();
+       $("img").hide();
+       console.log("it's clicked");
+       
+       $("body").prepend(prev);
+       $("img").attr("src","https://www.kasandbox.org/programming-images/food/tomatoes.png");
+       $("img").attr("alt","vegan salad");
+       $("img").fadeIn(1500);
+       name = $(".nametag").text("tomatoes");
+       $(".nametag").css("color","orange");
+       $("body").append(name);
+    });
+    
+    prev.on("click",function(event){
+       event.preventDefault();
+       $("img").hide();
+       $("img").attr("src","https://www.kasandbox.org/programming-images/food/mushroom.png");
+       $(".nametag").text("mushroom");
+        $(".nametag").css("color","green");
+        $("img").slideDown();
+    });
+    
+    </script> 
+    
+    </body>
+</html>
